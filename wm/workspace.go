@@ -11,7 +11,7 @@ import (
 
 const (
 	ConfigFile    = "ws.conf.json"
-	HistoryFile   = "prj.History"
+	HistoryFile   = "prj.history"
 	ProjectConfig = "prj.conf.json"
 )
 

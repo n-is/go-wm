@@ -23,7 +23,7 @@ func main() {
 	pr.Run(x)
 	pr.Save()
 
-	fmt.Println(wm.RemoveWorkspace("hike"))
+	wm.RemoveWorkspace("hike")
 }
 
 func prompt(str string) string {

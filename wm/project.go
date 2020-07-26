@@ -12,7 +12,7 @@ type Project struct {
 	RootPath  string                 `json:"root_path"`
 	Variables map[string]interface{} `json:"Variables"`
 
-	History string
+	History string `json:"-"`
 	config  string
 }
 
