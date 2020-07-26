@@ -9,11 +9,11 @@ import (
 )
 
 type Project struct {
-	RootPath  string                 `json:"root_path"`
 	Variables map[string]interface{} `json:"Variables"`
 
-	History string `json:"-"`
-	config  string
+	History  string `json:"-"`
+	rootPath string
+	config   string
 }
 
 func newProject(root, hist, config string) *Project {
@@ -22,14 +22,14 @@ func newProject(root, hist, config string) *Project {
 	config = filepath.Join(rt, config)
 
 	return &Project{
-		RootPath: root,
+		rootPath: root,
 		History:  hist,
 		config:   config,
 	}
 }
 
 func (p *Project) create() {
-	root, err := filepath.Abs(p.RootPath)
+	root, err := filepath.Abs(p.rootPath)
 	if err != nil {
 		log.Panic(err)
 	}
@@ -43,7 +43,7 @@ func (p *Project) create() {
 }
 
 func (p *Project) open() {
-	root, err := filepath.Abs(p.RootPath)
+	root, err := filepath.Abs(p.rootPath)
 	if err != nil {
 		log.Panic(err)
 	}
