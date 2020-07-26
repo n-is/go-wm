@@ -18,7 +18,6 @@ const (
 type WorkSpace struct {
 	Projects map[string]string `json:"projects"`
 	conf     string
-	projects []*Project
 }
 
 // OpenWorkspace either opens a new workspace or creates
