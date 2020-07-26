@@ -69,7 +69,7 @@ func RemoveWorkspace(folder string) error {
 }
 
 func (w *WorkSpace) AddNewProject(name, rootPath string) (*Project, error) {
-	w.Projects[name] = rootPath
+	w.Projects[name], _ = filepath.Abs(rootPath)
 	w.Update()
 
 	p := newProject(rootPath, HistoryFile, ProjectConfig)
